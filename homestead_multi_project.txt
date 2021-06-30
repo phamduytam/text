@@ -1,0 +1,65 @@
+Example: I've 2 projects folder and 1 folder phpMyAdmin : hackathon & laravel_homestead.
+I will config it working.
+
+Step 1: open file ~/.homestead/Homestead.yaml
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 1
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: /Applications/MAMP/htdocs/laravel_homestead/laravel-homestead/
+      to: /home/vagrant/Code/laravel_homestead
+    - map: /Applications/MAMP/htdocs/phpMyAdmin
+      to: /home/vagrant/Code/phpMyAdmin
+    - map: /Applications/MAMP/htdocs/hackathon/
+      to: /home/vagrant/Code/hackathon
+      type: "nfs"
+
+sites:
+    - map: homestead.app
+      to: /home/vagrant/Code/laravel_homestead/laravel/public
+    - map: hackathon.app
+      to: /home/vagrant/Code/hackathon/hackathon_tuhao/public
+    - map: phpmyadmin.app
+      to: /home/vagrant/Code/phpMyAdmin
+databases:
+    - homestead
+    - hackathon
+
+variables:
+    - key: APP_ENV
+      value: local
+---
+
+* With folders: when "homestead up" will auto upload code from "map" (local) to "to" (virtual box server)
+* With sites: access "map" (homestead.app) will go to public site (/home/vagrant/Code/laravel_homestead)
+Step 2:
+* config /etc/hosts
+192.168.10.10 homestead.app
+192.168.10.10 hackathon.app
+127.0.01 phpmyadmin.app
+
+Step 3: check result
+* run command "homestead up"
+* connect virtual box with command "homestead ssh". If you can not connect, please check config authorize 
+and keys
+* check folder /home/vagrant/Code have existed 3 folders : laravel_homestead, hackathon, phpMyAdmin? if existed =>> success
+* check folder /etc/nginx/sites-enabled have existed 3 domains: homestead.app, hackathon.app, phpmyadmin.php
+if existed => success.
+
+Notes:
+* if you see "no input file specified" please check path config in folders and sites. Maybe wrong path 
+* with folder phpMyAdmin (/Applications/MAMP/htdocs/phpMyAdmin) you can download from internet
+* You want access page phpMyAdmin: please connect phpmyadmin.app:8000
+
+
+
+
+

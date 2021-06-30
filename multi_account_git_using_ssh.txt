@@ -1,0 +1,52 @@
+I have 2 accounts with email email1@gmail.com & email2@gmail.com
+Step 1: create ssh key, go to ~/.ssh
+ssh-keygen -t rsa -C "email1@gmail.com"
+=>> rename to => id_rsa_email1
+ssh-keygen -t rsa -C "email2@gmail.com"
+=>> rename to => id_rsa_email2
+
+Step 2: check add ssh key
+ssh-add -l
+if exist id_rsa_email1 & id_rsa_email2 skip step 3
+
+Step 3: add ssh key
+ssh-add id_rsa_email1
+ssh-add id_rsa_email2
+
+Step 4: add file config in folder .ssh
+touch config
+paste content to file config
+
+#account email 1
+Host email1.github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_email1
+
+#account email 2
+Host email2.github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_email2
+    
+Check config
+ssh -T git@email1.github.com
+if successs, show message "Hi xxx! You've successfully authenticated, but GitHub does not provide shell access."
+with xxx is username of account email1@gmail.com
+if fail, show message "permission denied"
+
+Similar email1, check email2
+
+Step 5: add ssh key to account github
+login github.com, go to setting, choose SSH keys
+With account email1@gmail.com
+ - open file id_rsa_email1, copy content and paste to field Key in github page.
+ - similar email1, add ssh key for email 2.
+ 
+
+
+Done 
+
+When see text "Permission denied (publickey)", please check ssh-add -l already exist in list? if not exist
+please add ssh key.
+

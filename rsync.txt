@@ -1,0 +1,23 @@
+# Sao luu:
+	rsync -vbar --delete-before /thư/mục/A /thư/mục/B
+	Sao lưu chính là tính năng lưu trữ 1 chiều: từ A đến B. Nếu A thay đổi nội dung thì B thay đổi theo.
+# Dong bo: 
+	rsync -av --numeric-ids /thư/mục/A /thư/mục/B
+	Chức năng “synchronize” là chức năng đồng bộ hóa dữ liệu. Nôm na thì nó cũng không khác tính năng “backup” là bao. Tuy nhiên, hiểu cặn kẽ hơn, “synchronize” chính là tính năng 2 chiều:
+_Khi A có thay đổi mới nhất, B cũng sẽ thay đổi
+_Khi B có thay đổi mới nhất, A cũng sẽ ghi nhận sự thay đổi này và thay đổi theo
+
+
+
+#rsync -azv --progress --size-only --delete --exclude 'file or folder ' /home/gocit/source/* www.phongtuc.vn:/home/phongtuc/destination/
+#rsync -azv /source/ -e "ssh -i key" "root@123.12.23.123:/dest/"
+
+1. -a : lưu trữ và bảo tồn tất cả các thuộc tính của file
+2. -z : nén, tiết kiệm băng thông, nhưng tốn tài nguyên hệ thống
+3. --progress : hiện thị quá trình copy các file.
+4. --size-only : so sánh các file dựa trên dung lượng, tiết kiệm cpu và nhanh
+5. --delete : nếu các file ở nguồn (source) bị xóa thì các file đó củng được xóa ở đích (destination)
+6. -v : verbose, in ra qua trinh copy
+7. --exclude: khong copy nhung file trong dau ''
+8. -e: chạy shell script nên phải đặt câu lệnh trong dấu "" 
+Lưu ý : Dấu * có nghĩa là không copy file ẩn. nếu muốn copy luôn file ẩn thì viết lại như sau. /home/gocit/source/ # bỏ dấu */home/phongtuc/destination # bỏ dấu xuyệt cuối đi.

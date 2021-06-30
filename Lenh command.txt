@@ -1,0 +1,16 @@
+Grep: grep -r "/ero/" . | grep -v '.svn'
+
+Zip: zip -r OAD_AuKantanKessai_Source.zip File… Folder...
+
+sudo /Applications/MAMP/Library/bin/mysql -h localhost -uroot -p
+
+1.Backup
+  - mysqldump -h host -u[user] -p[password] -P port db_name > dumpfilename
+	VD: mysqldump -h 127.0.0.1 -u root -proot -P 6033 demo > demo.sql
+2.Restore
+  - Tao db moi: mysql -u [user] -p[password] -e "db_name";
+  	VD: mysql -u root -proot -e "demo1";
+  - restore db: mysql -u [user] -p[password] db_name < dumpfilename
+  	VD: mysql -u root -proot demo1 < demo.sql
+  	
+  	

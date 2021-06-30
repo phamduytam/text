@@ -1,0 +1,15 @@
+git rebase -i commit : copy commit
+git cherry-pick commit commit ...: copy commit
+git reset ...: reset commit to  ....
+git revert commit: copy commit
+git commit --amind: create
+git stash: chuyển những file đã modified vaò thùng rác
+git stash: lấy những file đã add vào thùng rác gần nhất ra.
+
+git log --oneline --decorate --all --graph : show log giống source tree
+
+
+##########
+Pull data form branch
+b1: checkout branch can pull ve
+b2: git pull origin branch

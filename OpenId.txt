@@ -1,0 +1,52 @@
+OpenID là phương pháp cho phép bạn chỉ cần đăng nhập 1 lần tại một trang web cung cấp dịch vụ OpenID tin cậy(*) và sử dụng lần đăng nhập đó để truy cập vào các website khác có cho phép đăng nhập bằng OpenID. Người dùng sẽ không phải tạo tài khoản mới hoặc đăng nhập vào những trang web đó mà chỉ cần khai báo tài khoản OpenID của mình là gì. Việc thực hiện khai báo cho phép trang web cung cấp dịch vụ OpenID gửi một số thông tin cá nhân tới trang web yêu cầu để xác thực rằng người dùng đó là người dùng dịch vụ OpenID hợp lệ.
+
+* Danh sách 1 số website cung cấp dịch vụ OpenID tin cậy
+* Google https://www.google.com/accounts/o8/id
+* Yahoo https://me.yahoo.com
+* https://www.myopenid.com/
+* http://claimid.com/
+* http://myid.net/
+
+Link tham khao: http://www.thegioimanguon.com/open-id-la-gi/
+			   http://thuthuat.chiplove.biz/post/openid-la-gi-va-cach-su-dung-openid.865/
+/
+				
+				
+				
+// OAUTH
+
+1. Bắt đầu với Authorization, cụ thể là OAuth bạn phải phân biệt được những bên liên quan như sau
+
+    Client: là ứng dụng (chú ý là một ứng dụng, có thể là ứng dụng Desktop, cũng có thể là website của bạn như http://www.youbrainy.com
+    ), muốn có quyền sử dụng tài nguyên của Server
+    Server: là một ứng dụng khác,  chẳng hạn như google.com.
+    You: chính bạn, bạn có tài nguyên trên Server và bạn muốn cho Client quyền sử dụng nó
+
+Tóm lại: OAuth là phương pháp để Client sử dụng được tài nguyên của You bên phía Server
+2. Phân biệt hai loại OAuth
+
+    2-legged OAuth: là kiểu Authorization trong đó vai trò của You và Client là như nhau. Tức là Client chính là You của Server. Đó là kịch bản Client-Server thông thường.
+    3-legged OAuth: là kiểu Authorization trong đó You và Client là phân biệt. Client muốn You chia sẻ tài nguyên đã có bên phía Server.
+
+3. Cách OAuth hoạt động
+3.1. 2- legged OAuth
+
+    Client đăng ký sử dụng dịch vụ với Server
+    Server cho Client
+        CONSUMER_KEY
+        CONSUMER_SECRET_KEY
+    Client sử dụng các keys trên để thực hiện Authorization
+
+3.2. 3- legged OAuth
+
+    Client đăng ký sử dụng dịch vụ với Server
+    Server cho Client
+        CONSUMER_KEY
+        CONSUMER_SECRET_KEY
+    You có tài nguyên ở Server
+    You sử dụng dịch vụ ở Client, Client yêu cầu You cho phép khai thác tài nguyên của You ở Server
+    Client yêu cầu Server gửi REQUEST_TOKEN cho You
+    Client chuyển You đến Server Authentication
+    You đăng nhập vào Server, Server hỏi You có muốn chia sẻ quyền khai thác dữ liệu cho Client hay không
+    You đồng ý, Server chuyển You về Client kèm theo ACCESS_TOKEN
+     Client sử dụng ACCESS_TOKEN để thực hiện thao tác trên các tài nguyên của You thuộc Server
