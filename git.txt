@@ -13,3 +13,8 @@ git log --oneline --decorate --all --graph : show log giống source tree
 Pull data form branch
 b1: checkout branch can pull ve
 b2: git pull origin branch
+
+$ git remote add origin  <REMOTE_URL> 
+# Sets the new remote
+$ git remote -v
+# Verifies the new remote URL
