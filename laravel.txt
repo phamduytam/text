@@ -5,3 +5,12 @@ php artisan make:controller ArticleController
 # make model
 $ php artisan make:model Article -m
 The -m option is short for --migration and it tells Artisan to create one for our model.\
+
+# start serve
+php -S localhost:8000 -t public
+
+# use image resize
+use Intervention\Image\ImageManagerStatic as Image;
+
+# reload helper
+composer dump-autoload

@@ -5,6 +5,7 @@ git revert commit: copy commit
 git commit --amind: create
 git stash: chuyển những file đã modified vaò thùng rác
 git stash: lấy những file đã add vào thùng rác gần nhất ra.
+git stash --include-untracked
 
 git log --oneline --decorate --all --graph : show log giống source tree
 

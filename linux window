@@ -1,0 +1,33 @@
+linux window
+
+# permission
+sudo su root
+
+
+# cd to folder C
+cd /mnt/c
+
+
+# get all folders and files from url
+wget -r -np -nH --cut-dirs=3 -R index.html http://hostname/aaa/bbb/ccc/ddd/
+Explanation:
+
+It will download all files and subfolders in ddd directory
+-r : recursively
+-np : not going to upper directories, like ccc/…
+-nH : not saving files to hostname folder
+--cut-dirs=3 : but saving it to ddd by omitting first 3 folders aaa, bbb, ccc
+-R index.html : excluding index.html files
+
+#build scss to css
+sass --no-source-map --watch scss:css
+
+
+40      350
+25	
+
+40 100
+18.5 
+
+40 350
+22.5

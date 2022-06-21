@@ -50,3 +50,5 @@ Done
 When see text "Permission denied (publickey)", please check ssh-add -l already exist in list? if not exist
 please add ssh key.
 
+
+eval `ssh-agent -s`

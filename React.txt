@@ -1,0 +1,20 @@
+use Context
+
+import { Context } from '../context/ChatListContext'
+
+class MainScreen extends Component {
+
+ static contextType = Context
+
+  constructor(props) {
+    super(props)
+    this.state = { loading: true, showAction: false }
+    setTimeout(() => {
+      StatusBar.setBackgroundColor(primary)
+    }, 100)
+  }
+...
+  render() {
+       const {state, fetchChatList} =this.context;
+  }
+}

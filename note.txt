@@ -1,1 +1,18 @@
 https://www.ted.com/talks/bill_gates_the_innovations_we_need_to_avoid_a_climate_disaster/transcript#t-140612
+
+$headers = [
+            'Access-Control-Allow-Origin' => '*',
+            'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE, OPTIONS',
+            'Access-Control-Allow-Headers' => 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
+            'Access-Control-Max-Age' => '86400',
+            'Access-Control-Allow-Credentials' => 'false'
+        ];
+        $response = $next($request);
+        foreach($headers as $key => $value)
+        {
+            $response->header($key, $value);
+        }
+        return $response;
+
+
+https://lms.elitelearning.vn/api/elite/v1/elite_room/998a0094-3b27-4e3e-83f4-1febfc6929bb

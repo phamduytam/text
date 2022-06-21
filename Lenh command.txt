@@ -12,5 +12,8 @@ sudo /Applications/MAMP/Library/bin/mysql -h localhost -uroot -p
   	VD: mysql -u root -proot -e "demo1";
   - restore db: mysql -u [user] -p[password] db_name < dumpfilename
   	VD: mysql -u root -proot demo1 < demo.sql
+
+
+
   	
   	
